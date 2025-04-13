@@ -1,8 +1,7 @@
-# requirements.txt
-
 Django>=4.2,<5.0
 gunicorn
-psycopg2-binary  # Needed if using PostgreSQL on Railway
-whitenoise  # For serving static files in production
-dj-database-url  # To parse DATABASE_URL from environment variables
-python-dotenv  # For local environment variables support
+psycopg2-binary
+whitenoise
+dj-database-url
+python-dotenv
+python-decouple  # <== Add this line
