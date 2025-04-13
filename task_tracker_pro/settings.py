@@ -61,3 +61,7 @@ LOGIN_URL = '/api/login/'
 
 import django_heroku
 django_heroku.settings(locals())
+
+from decouple import config
+SECRET_KEY = config('SECRET_KEY')
+DEBUG = config('DEBUG', default=False, cast=bool)
