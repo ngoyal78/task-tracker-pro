@@ -62,3 +62,8 @@ LOGIN_URL = '/api/login/'
 from decouple import config
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
+
+import os
+STATIC_URL = '/static/'
+# Add this line to specify where static files should be collected.
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
