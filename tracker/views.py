@@ -150,3 +150,16 @@ def task_create(request):
     else:
         form = TaskForm()
     return render(request, 'tracker/task_form.html', {'form': form})
+
+@login_required
+def task_gallery_view(request):
+    tasks = Task.objects.all()
+    selected_id = request.GET.get("selected")
+    selected_task = None
+    if selected_id:
+        selected_task = Task.objects.filter(id=selected_id).first() if selected_id else None
+#        selected_task = get_object_or_404(Task, id=selected_id)
+    return render(request, 'tracker/task_gallery.html', {
+        'tasks': tasks,
+        'selected_task': selected_task
+    })
